@@ -4,21 +4,16 @@
 import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
 
-
-// const testDir=defineBddConfig({
-//   paths:['login.feature'],
-//   require:['loginsteps.js'],
-// });
+const testDir=defineBddConfig({
+  features: './tests/features/**/*.feature',
+  steps: './tests/steps/**/*.js',
+});
 
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
  export default defineConfig({
-  ...defineBddConfig({
-    paths: ['tests/features/*.feature'],  // Path to your .feature files
-    require: ['tests/steps/*.js'],  // Path to your step definitions
-  }),
-  //testDir: './tests',
+  testDir,
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */

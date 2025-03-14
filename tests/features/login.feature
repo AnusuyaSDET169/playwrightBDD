@@ -1,7 +1,6 @@
-Feature: Login functionality
+Feature:
 
-  Scenario: Valid login with correct credentials
-    Given I am on the login page "https://playwright-frontend-app-a9ea85794ad9.herokuapp.com/login"
-    When  I enter valid credentials "Playwright@gmail.com" and "March@2025"
-    And   I click on the login button
-    Then  I should be logged in successfully
+    Scenario: Check get started link
+        Given I am on home page
+        When I click link "Get started"
+        Then I see in title "Installation"
